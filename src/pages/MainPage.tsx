@@ -7,7 +7,7 @@ export default function MainPage() {
   const { isAuthenticated } = useSelector((store: RootState) => store.auth);
 
   return isAuthenticated ? (
-    <div className="flex w-[100vw]">
+    <div className="flex w-[100vw] flex-col md:flex-row">
       <Navbar />
       <Outlet />
     </div>
