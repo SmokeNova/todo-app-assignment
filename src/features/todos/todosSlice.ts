@@ -4,6 +4,7 @@ type todo = {
   title: string;
   description?: string;
   dueDate: Date;
+  isCompleted: boolean;
 };
 
 const initialState: todo[] = (() => {

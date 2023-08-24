@@ -8,8 +8,8 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   return (
-    <nav className="md:basis-[18%] md:!max-w-[235px] flex flex-col justify-between py-5 h-[100vh]">
-      <div className="md:basis-[100%] flex md:flex-col gap-4 flex-row">
+    <nav className="md:basis-[18%] md:min-w-[170px] md:!max-w-[240px] flex flex-row max-md:items-center md:flex-col justify-between px-2 md:px-0 md:py-7 md:h-[100vh]">
+      <div className="md:basis-[100%] flex md:flex-col gap-2 md:gap-4 flex-row">
         <Link
           to="/"
           className={`link ${pathname === "/" ? "linkSelected" : ""}`}
@@ -38,7 +38,7 @@ export default function Navbar() {
           <span>
             <LogoutIcon />
           </span>
-          Logout
+          <span className="hidden sm:inline">Logout</span>
         </button>
       </div>
     </nav>

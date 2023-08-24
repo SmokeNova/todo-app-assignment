@@ -24,7 +24,7 @@ body {
 }
 
 .link {
-    @apply flex items-center pl-5 gap-2 md:gap-5 hover:gap-3 transition-all duration-200 font-[700] text-lg py-[.65rem] rounded-r-full;
+    @apply flex items-center justify-center md:justify-start md:pl-5 gap-2 md:gap-5 hover:gap-3 transition-all duration-200 font-[700] text-lg py-[.65rem] px-3 md:px-0 max-md:rounded-b-lg md:rounded-r-full;
 }
 
 .logout {
