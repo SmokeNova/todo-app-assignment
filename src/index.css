@@ -23,6 +23,11 @@ body {
     line-height: 1.5;
 }
 
+.link {
+    @apply flex items-center pl-5 gap-2 md:gap-5 hover:gap-3 transition-all duration-200 font-[700] text-lg py-[.65rem] rounded-r-full;
+}
+
+
 .input-field {
     @apply border border-[var(--color-gray-2)] bg-[var(--color-gray-1)] px-3 py-3 outline-0 rounded-md;
 }

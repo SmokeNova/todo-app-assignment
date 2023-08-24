@@ -16,15 +16,11 @@ export function useLogin() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (
+    // fetch user-data from some db maybe 😶
+    const authState =
       email.toLowerCase() === "ssjbluemaaz@gmail.com" &&
-      password.toLowerCase() === "dracula10"
-    ) {
-      dispatch(login());
-      alert("Form Submitted");
-    } else {
-      alert("Invalid username or password");
-    }
+      password.toLowerCase() === "dracula10";
+    dispatch(login(authState));
   }
 
   function updateFields(field: Partial<FieldData>) {
