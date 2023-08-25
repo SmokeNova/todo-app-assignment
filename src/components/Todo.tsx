@@ -1,8 +1,11 @@
-import moment from "moment";
-import { Todo as TodoType } from "../features/todos/todosSlice";
+import { useDispatch } from "react-redux";
+import { Todo as TodoType, completeTodo } from "../features/todos/todosSlice";
 import { CheckedBox, UncheckedBox } from "../icons";
+import { formatDistanceToNow, intlFormat } from "date-fns";
 
-export default function Todo({ title, dueDate, isCompleted }: TodoType) {
+export default function Todo({ title, dueDate, isCompleted, id }: TodoType) {
+  const dispatch = useDispatch();
+
   return (
     <div
       className={`flex gap-2 ${isCompleted && "text-slate-400 items-center"}`}
@@ -11,18 +14,20 @@ export default function Todo({ title, dueDate, isCompleted }: TodoType) {
         type="button"
         className="outline-none border-none w-8 h-8 self-start"
         disabled={isCompleted}
+        onClick={() => dispatch(completeTodo(id))}
       >
         {isCompleted ? <CheckedBox /> : <UncheckedBox />}
       </button>
       <div>
         <p
-          className={`${!isCompleted && "font-[500]"} text-xl tracking-normal`}
+          className={`${!isCompleted && "font-[500]"} text-lg tracking-normal`}
         >
           {title}
         </p>
         {!isCompleted && (
           <p className="text-slate-500 text-sm">
-            ⏰ {moment(dueDate).calendar()}
+            ⏰ {formatDistanceToNow(new Date(dueDate))} remaining, due:{" "}
+            {intlFormat(new Date(dueDate))}
           </p>
         )}
       </div>

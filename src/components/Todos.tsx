@@ -10,19 +10,23 @@ export default function Todos() {
   const inComplete = todos.filter((item) => !item.isCompleted);
   const completed = todos.filter((item) => item.isCompleted);
 
+  function toggleVisibility() {
+    setIsVisible(prev => !prev)
+  }
+
   return (
     <section className="grow md:mt-14 md:p-7 max-h-[100vh] overflow-y-scroll no-scrollbar">
       <div className="inline-flex gap-8 flex-col">
         <button
           type="button"
           className="text-xl font-[700] tracking-normal text-start"
-          onClick={() => setIsVisible((prev) => !prev)}
+          onClick={toggleVisibility}
         >
           + Add new task
         </button>
         <div>
           <h2 className="text-xl font-[700] tracking-wide mb-4">Incomplete</h2>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {inComplete.map((task) => (
               <Todo key={task.id} {...task} />
             ))}
@@ -42,7 +46,7 @@ export default function Todos() {
           !isVisible && "hidden"
         }`}
       >
-        <CreateTodo />
+        <CreateTodo toggleVisibility={toggleVisibility} />
       </div>
     </section>
   );
