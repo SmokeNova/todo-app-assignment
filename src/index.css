@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+    --color-main: #575767;
     --color-gray-1: #F6F6F6;
     --color-gray-2: #E8E8E8;
     --color-gray-3: #BDBDBD;
@@ -21,6 +22,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.5;
+    color: var(--color-main);
 }
 
 .link {

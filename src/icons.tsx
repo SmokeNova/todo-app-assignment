@@ -64,3 +64,96 @@ export const LogoutIcon = () => {
     </svg>
   );
 };
+
+export const UncheckedBox = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="1"
+        y="1"
+        width="22"
+        height="22"
+        rx="5"
+        fill="url(#paint0_linear_1_1338)"
+      />
+      <rect
+        x="1"
+        y="1"
+        width="22"
+        height="22"
+        rx="5"
+        stroke="#DADADA"
+        strokeWidth="2"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_1_1338"
+          x1="12"
+          y1="0"
+          x2="12"
+          y2="24"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#FCFCFC" />
+          <stop offset="1" stopColor="#F8F8F8" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export const CheckedBox = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="1"
+        y="1"
+        width="22"
+        height="22"
+        rx="5"
+        fill="url(#paint0_linear_1_1386)"
+      />
+      <path
+        d="M8 13L10.9167 16L16 8"
+        stroke="#575767"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="1"
+        y="1"
+        width="22"
+        height="22"
+        rx="5"
+        stroke="#DADADA"
+        strokeWidth="2"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_1_1386"
+          x1="12"
+          y1="0"
+          x2="12"
+          y2="24"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#FCFCFC" />
+          <stop offset="1" stopColor="#F8F8F8" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
