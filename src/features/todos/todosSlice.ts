@@ -30,9 +30,8 @@ const initialState: Todo[] = (() => {
   let todos: Todo[] = [];
   if (items) {
     todos = JSON.parse(items);
-    todos = todos.map((t) => ({ ...t, dueDate: t.dueDate }));
   }
-  return todos ? todos : [];
+  return todos;
 })();
 
 export const todosSlice = createSlice({

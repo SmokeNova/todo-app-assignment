@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
-import { Location, Todos } from "./components";
+import { LocationPage, Todos } from "./components";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}>
           <Route path="/" element={<Todos />} />
-          <Route path="/location" element={<Location />} />
+          <Route path="/location" element={<LocationPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
       </Routes>

@@ -15,17 +15,17 @@ export default function Todos() {
   }
 
   return (
-    <section className="grow md:pt-14 md:p-7 max-h-[100vh] !overflow-y-scroll">
+    <section className="grow max-sm:px-3 md:pt-14 md:p-7 max-h-[100vh] !overflow-y-scroll">
       <div className="inline-flex gap-8 flex-col">
         <button
           type="button"
-          className="text-xl font-[700] tracking-normal text-start"
+          className="text-lg md:text-xl font-[700] tracking-normal text-start"
           onClick={toggleVisibility}
         >
           + Add new task
         </button>
         <div>
-          <h2 className="text-xl font-[700] tracking-wide mb-4">Incomplete</h2>
+          <h2 className="text-lg md:text-xl font-[700] tracking-wide mb-4">Incomplete</h2>
           <div className="flex flex-col gap-4">
             {inComplete.map((task) => (
               <Todo key={task.id} {...task} />
@@ -33,7 +33,7 @@ export default function Todos() {
           </div>
         </div>
         <div>
-          <h2 className="text-xl font-[700] tracking-wide mb-4">Completed</h2>
+          <h2 className="text-lg md:text-xl font-[700] tracking-wide mb-4">Completed</h2>
           <div className="flex flex-col gap-2">
             {completed.map((task) => (
               <Todo key={task.id} {...task} />
