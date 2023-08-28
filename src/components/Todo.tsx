@@ -1,6 +1,10 @@
 import { useDispatch } from "react-redux";
-import { Todo as TodoType, completeTodo } from "../features/todos/todosSlice";
-import { CheckedBox, UncheckedBox } from "../icons";
+import {
+  Todo as TodoType,
+  completeTodo,
+  deleteTodo,
+} from "../features/todos/todosSlice";
+import { CheckedBox, DeleteIcon, UncheckedBox } from "../icons";
 import { formatDistanceToNow, intlFormat } from "date-fns";
 
 export default function Todo({ title, dueDate, isCompleted, id }: TodoType) {
@@ -31,6 +35,15 @@ export default function Todo({ title, dueDate, isCompleted, id }: TodoType) {
           </p>
         )}
       </div>
+      {!isCompleted && (
+        <button
+          type="button"
+          className="outline-none border-none ml-4 mt-4 self-center"
+          onClick={() => dispatch(deleteTodo(id))}
+        >
+          <DeleteIcon />
+        </button>
+      )}
     </div>
   );
 }

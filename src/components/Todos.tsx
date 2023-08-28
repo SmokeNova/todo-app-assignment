@@ -15,7 +15,7 @@ export default function Todos() {
   }
 
   return (
-    <section className="grow md:mt-14 md:p-7 max-h-[100vh] overflow-y-scroll no-scrollbar">
+    <section className="grow md:pt-14 md:p-7 max-h-[100vh] !overflow-y-scroll">
       <div className="inline-flex gap-8 flex-col">
         <button
           type="button"

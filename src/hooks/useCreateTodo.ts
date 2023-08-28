@@ -29,7 +29,9 @@ export function useCreateTodo(fn: () => void) {
       setDateError("This date has passed. Please enter an upcoming date.");
       return;
     }
-    dispatch(createTodo({ title, description, dueDate }));
+    dispatch(createTodo({ title, description, dueDate: dueDate.toString() }));
+    setData(initialData);
+    setDateError("");
     return fn();
   }
 
