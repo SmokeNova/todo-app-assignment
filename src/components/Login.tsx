@@ -32,7 +32,7 @@ export default function Login() {
             onChange={(e) => updateFields({ password: e.target.value })}
           />
           <button
-            className="text-center bg-black text-white rounded-full font-[600] py-3 tracking-wide mt-6 hover:scale-[1.05] transition-transform duration-300"
+            className="text-center bg-black text-white rounded-full font-[600] py-3 tracking-wide mt-6"
             type="submit"
           >
             Log In

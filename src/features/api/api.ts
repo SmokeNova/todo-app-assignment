@@ -12,3 +12,4 @@ export const locationApi = createApi({
 })
 
 export const { useGetLocationQuery } = locationApi;
+;

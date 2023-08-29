@@ -8,15 +8,22 @@ export type Location = {
     lat: string;
     lon: string;
     display_name: string;
-    address: {
-      residential: string;
-      subdistrict: string;
-      county: string;
-      state: string;
-      postcode: string;
-      country: string;
-      country_code: string;
-    };
+    address: AddressT
     boundingbox: [string, string, string, string];
   };
+
+  
+export type Todo = {
+  id: string;
+  title: string;
+  description?: string;
+  dueDate: string;
+  isCompleted: boolean;
+};
+
+export type TodoInput = {
+  title: string;
+  description?: string;
+  dueDate: string;
+};
   

@@ -1,11 +1,8 @@
 import { useDispatch } from "react-redux";
-import {
-  Todo as TodoType,
-  completeTodo,
-  deleteTodo,
-} from "../features/todos/todosSlice";
+import { completeTodo, deleteTodo } from "../features/todos/todosSlice";
 import { CheckedBox, DeleteIcon, UncheckedBox } from "../icons";
 import { formatDistanceToNow, intlFormat } from "date-fns";
+import { Todo as TodoType } from "../vite-env";
 
 export default function Todo({ title, dueDate, isCompleted, id }: TodoType) {
   const dispatch = useDispatch();

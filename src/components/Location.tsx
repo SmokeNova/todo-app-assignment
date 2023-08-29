@@ -16,7 +16,7 @@ export default function Location({county, state, country, coords}: LocationProps
 
       <div>
         <p className={`font-[500] text-lg tracking-normal`}>{county}, {state}, {country}</p>
-        <p className="text-slate-400 text-sm font-[500]">{coords.lat} {"".repeat(6)} {coords.lon}</p>
+        <p className="text-slate-400 text-sm font-[500]">Latitude:-{coords.lat}, Longitude:-{coords.lon}</p>
       </div>
     </div>
   );

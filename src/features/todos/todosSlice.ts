@@ -1,37 +1,10 @@
 import { Middleware, createSlice } from "@reduxjs/toolkit";
+import { Todo, TodoInput } from "../../vite-env";
+import { generateRandomId } from "../../utils";
 
-export type Todo = {
-  id: string;
-  title: string;
-  description?: string;
-  dueDate: string;
-  isCompleted: boolean;
-};
-
-type TodoInput = {
-  title: string;
-  description?: string;
-  dueDate: string;
-};
-
-function generateRandomId(): string {
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!*&^%$£";
-  let result = "";
-  for (let i = 0; i < 12; i++) {
-    const random = Math.floor(Math.random() * characters.length);
-    result += characters[random];
-  }
-  return result;
-}
 
 const initialState: Todo[] = (() => {
-  let items = localStorage.getItem("todos");
-  let todos: Todo[] = [];
-  if (items) {
-    todos = JSON.parse(items);
-  }
-  return todos;
+  return JSON.parse(localStorage.getItem('todos') ?? '[]')
 })();
 
 export const todosSlice = createSlice({
