@@ -1,22 +1,21 @@
-import { useState, useEffect } from "react";
-import { useGetLocationQuery } from "../features/api/api";
+import { useEffect } from "react";
 import Location from "./Location";
-import { getLocation } from "../utils";
+import { RootState, useAppDispatch } from "../store";
+import { useSelector } from "react-redux";
+import { getLocation } from "../features/locations/locationsSlice";
+import { TLocationLocal } from "../vite-env";
 
-export default function LocationPage() {
-  const [coords, setCoords] = useState({ lat: 0, lon: 0 });
-  const { data, isError, isLoading } = useGetLocationQuery(coords);
 
-  function setCoordinates(newCoords: { lat: number; lon: number }) {
-    setCoords(newCoords);
-  }
+export default function LocationPage({isFirst, changeIsFirst}: {isFirst: boolean, changeIsFirst: () => void}) {
+  const dispatch = useAppDispatch();
+  const {currentLocation, hasError, isLoading, previousLocations} = useSelector((store: RootState) => store.locations)
 
   useEffect(() => {
-    getLocation(setCoordinates);
-  }, []);
+    isFirst ? dispatch(getLocation(true)) : dispatch(getLocation(false))
+    changeIsFirst();
+  }, [])
 
-  if (isError) return <h1>Something went wrong... Please reload the page.</h1>;
-  if (isLoading) return <h1>Loading...</h1>;
+  console.log(currentLocation)
 
   return (
     <section className="grow max-sm:px-3 md:pt-14 md:p-7 max-h-[100vh] !overflow-y-scroll">
@@ -24,7 +23,7 @@ export default function LocationPage() {
         <button
           type="button"
           className="text-xl font-[700] tracking-normal text-start"
-          onClick={() => getLocation(setCoordinates)}
+          onClick={() => {}}
         >
           + Check In
         </button>
@@ -34,8 +33,8 @@ export default function LocationPage() {
             Current Location
           </h2>
           <div className="flex flex-col gap-4">
-            {data?.address.country ? (
-              <Location coords={coords} {...data.address} />
+            {!isLoading && !hasError ? (
+              <Location {...(currentLocation as TLocationLocal)} />
             ) : (
               "Fetching your location. If this takes too long, enable allow access to your location."
             )}
@@ -46,7 +45,12 @@ export default function LocationPage() {
           <h2 className="text-lg md:text-xl font-[700] tracking-wide mb-4">
             Previous Locations
           </h2>
-          <div className="flex flex-col gap-4"></div>
+          <div className="flex flex-col gap-4">
+            {previousLocations.map((location, idx) => (
+              <Location key={idx} {...location} />
+
+            ))}
+          </div>
         </div>
       </div>
     </section>
