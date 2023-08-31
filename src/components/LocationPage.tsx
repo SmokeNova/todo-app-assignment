@@ -11,8 +11,8 @@ export default function LocationPage({isFirst, changeIsFirst}: {isFirst: boolean
   const {currentLocation, hasError, isLoading, previousLocations} = useSelector((store: RootState) => store.locations)
 
   useEffect(() => {
-    isFirst ? dispatch(getLocation(true)) : dispatch(getLocation(false))
-    changeIsFirst();
+    dispatch(getLocation(isFirst))
+    isFirst && changeIsFirst();
   }, [])
 
   console.log(currentLocation)
