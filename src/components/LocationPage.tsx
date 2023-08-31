@@ -48,7 +48,6 @@ export default function LocationPage({isFirst, changeIsFirst}: {isFirst: boolean
           <div className="flex flex-col gap-4">
             {previousLocations.map((location, idx) => (
               <Location key={idx} {...location} />
-
             ))}
           </div>
         </div>

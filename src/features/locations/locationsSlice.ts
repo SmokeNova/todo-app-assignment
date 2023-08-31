@@ -40,7 +40,7 @@ export const locationsSlice = createSlice({
     builder.addCase(getLocation.pending, (state) => {
         state.isLoading = true
     }),
-    builder.addCase(getLocation.fulfilled, (state, {payload}) => {
+    builder.addCase(getLocation.fulfilled, (state, { payload }) => {
       const {data, isFirst} = payload
       const currentLocation = {
         county: data.address.county,
